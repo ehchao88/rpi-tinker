@@ -22,5 +22,5 @@ class ImageConverter:
         resized_image = self.convert_to_grayscale_and_resize(file_path)
         image_bytes = io.BytesIO()
         resized_image.save(image_bytes, format='PNG')
-        return list(image_bytes.getvalue())
+        return bytearray(image_bytes.getvalue())
     
