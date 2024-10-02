@@ -16,13 +16,11 @@ class ImageConverter:
         greyscale_image: ImageFile.ImageFile = raw_image.convert('L')
         size = (int(self.width/6) + 1, int(self.height/8) + 1)
         greyscale_image = greyscale_image.resize(size)
-        greyscale_image = greyscale_image.convert(mode="1")
-        greyscale_image = greyscale_image.tobitmap()
         return greyscale_image
     
     def get_image_bytes (self, file_path: str):
         resized_image = self.convert_to_grayscale_and_resize(file_path)
-        image_bytes = io.BytesIO()
-        resized_image.save(image_bytes, format='PNG')
-        return list(image_bytes.getvalue())
+        resized_image = resized_image.convert(mode="1")
+        resized_image = resized_image.tobitmap()
+        return resized_image
     
