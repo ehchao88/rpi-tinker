@@ -184,4 +184,4 @@ class LCD5110:
         self.cursor(1, 1)
         pixels = LCD5110.LCD_WIDTH * LCD5110.LCD_HEIGHT
         for i in range(pixels):
-            self._write(1, image(i))
+            self._write(1, image[i])
