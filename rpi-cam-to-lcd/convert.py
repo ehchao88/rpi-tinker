@@ -11,7 +11,7 @@ image = converter.convert_to_grayscale_and_resize('test_images/rhett.png')
 image.save('test_results/rhett_resized.png')
 
 imageBytes = converter.get_image_bytes('test_images/rhett.png')
-print(imageBytes)
+print(len(imageBytes))
 
 screen = LCD.LCD5110()
 while True:

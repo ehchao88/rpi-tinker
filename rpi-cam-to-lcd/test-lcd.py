@@ -12,7 +12,7 @@ eTinkersLogo = [
 ]
 
 lcd = LCD5110()
-
+print(len(eTinkersLogo))
 while True:
     try:
         lcd.cursor(2, 1)
