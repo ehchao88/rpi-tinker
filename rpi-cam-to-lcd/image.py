@@ -16,6 +16,7 @@ class ImageConverter:
         greyscale_image: ImageFile.ImageFile = raw_image.convert('L')
         size = (int(self.width/6) + 1, int(self.height/8) + 1)
         greyscale_image = greyscale_image.resize(size)
+        greyscale_image = greyscale_image.convert(mode="1")
         greyscale_image = greyscale_image.tobitmap()
         return greyscale_image
     
