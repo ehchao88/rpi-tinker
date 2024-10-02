@@ -16,7 +16,7 @@ print(imageBytes)
 screen = LCD.LCD5110()
 while True:
     try: 
-        screen.printFullImage(imageBytes)
+        screen.printImage(imageBytes)
         time.sleep(5)
     except KeyboardInterrupt:
         screen.cleanup()
