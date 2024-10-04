@@ -35,7 +35,7 @@ class ImageConverter:
                 bits += cur_byte
             cur_y += 8
 
-        byte_rep = int(bits, base=2).to_bytes(int(len(bits)/8), 'big')
+        byte_rep = int(bits, base=2).to_bytes(int(len(bits)/8), 'little')
 
         return byte_rep
     
