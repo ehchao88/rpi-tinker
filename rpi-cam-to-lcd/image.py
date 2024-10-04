@@ -22,13 +22,20 @@ class ImageConverter:
         resized_image = self.convert_to_grayscale_and_resize(file_path)
         w,h = resized_image.size
         bits = ''
-        for y in range(h):
+        cur_y = 0
+        while cur_y < h:
             for x in range(w):
-                if resized_image.getpixel((x,y)) == 1:
-                    bits += '1'
-                else:
-                    bits += '0'
-        byte_rep = int(bits, base=2).to_bytes(int(len(bits)/8), 'little')
+                cur_byte = ''
+                for y in range(8):
+                    real_y = cur_y + y
+                    if resized_image.getpixel((x, real_y)) == 0xFF:
+                        cur_byte += '0'
+                    else:
+                        cur_byte += '1'
+                bits += cur_byte
+            cur_y += 8
+
+        byte_rep = int(bits, base=2).to_bytes(int(len(bits)/8), 'big')
 
         return byte_rep
     
